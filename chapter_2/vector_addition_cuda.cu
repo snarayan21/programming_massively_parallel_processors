@@ -21,7 +21,7 @@ void vecAddKernel(float* A, float* B, float* C, int n){
 void vecAdd(float* A_h, float* B_h, float* C_h, int n)
 {
     // Initialize and allocate pointers to device memory
-    float* A_d, B_d, C_d;
+    float *A_d, *B_d, *C_d;
     int size = n * sizeof(float);
     // First arg is a pointer to the pointer for each object
     // Why? cudaMalloc will set a new value for the pointer -- an address in device memory, 
