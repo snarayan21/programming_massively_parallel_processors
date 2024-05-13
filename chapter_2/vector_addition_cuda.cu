@@ -27,9 +27,9 @@ void vecAdd(float* A_h, float* B_h, float* C_h, int n)
     // Why? cudaMalloc will set a new value for the pointer -- an address in device memory, 
     // instead of the address in host memory
     // Second arg is the size to allocate, in bytes.
-    cudaMalloc(&A_d, size);
-    cudaMalloc(&B_d, size);
-    cudaMalloc(&C_d, size);
+    cudaMalloc((void**) &A_d, size);
+    cudaMalloc((void**) &B_d, size);
+    cudaMalloc((void**) &C_d, size);
 
     // Copy input vectors from host memory to device memory
     // First arg is the destination, second is the source, third is the size, fourth is the direction
