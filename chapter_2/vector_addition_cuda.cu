@@ -60,7 +60,7 @@ int main()
 
     int n = 1 << 5;
 
-    float* A_h = new float[n] ();
+    float* A_h = new float[n];
     float* B_h = new float[n];
     float* C_h = new float[n];
 
