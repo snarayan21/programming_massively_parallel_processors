@@ -77,7 +77,7 @@ int main(){
         }
     }
 
-    colorToGrayscale(Pout_h, Pin_h, width, height);
+    // colorToGrayscale(Pout_h, Pin_h, width, height);
 
     std::cout << "Color Image:";
     for (int i = 0; i < height; i++){
