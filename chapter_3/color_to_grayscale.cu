@@ -78,6 +78,14 @@ int main(){
         }
     }
 
+    std::cout << "Color Image:";
+    for (int i = 0; i < height; i++){
+        for (int j = 0; j < 3*width; j++){
+            std::cout << (int) Pin_h[i*3*width + j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
     colorToGrayscale(Pout_h, Pin_h, width, height);
 
     std::cout << "Color Image:";
