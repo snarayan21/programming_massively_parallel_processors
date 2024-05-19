@@ -71,11 +71,12 @@ int main(){
     unsigned char* Pout_h = new unsigned char[total_px];
     unsigned char* Pin_h = new unsigned char[3*total_px];
 
-    // for (int i = 0; i < height; i++){
-    //     for (int j = 0; i < width; j++){
-    //         Pout_h[i*width + j] = (unsigned char) (i+j) % 256;
-    //     }
-    // }
+    for (int i = 0; i < height; i++){
+        for (int j = 0; i < width; j++){
+            std::cout << "i: " << i << " j: " << j << std::endl;
+            Pout_h[i*width + j] = (unsigned char) (i+j) % 256;
+        }
+    }
 
     colorToGrayscale(Pout_h, Pin_h, width, height);
 
