@@ -67,8 +67,8 @@ int main(){
     int width = 72;
     int height = 60;
 
-    unsigned char* Pout_h = new unsigned char[height][width];
-    unsigned char* Pin_h = new unsigned char[height][3*width];
+    unsigned char* Pout_h = new unsigned char[60][72];
+    unsigned char* Pin_h = new unsigned char[60][3*72];
 
     for (int i = 0; i < height; i++){
         for (int j = 0; i < width; j++){
