@@ -66,13 +66,14 @@ int main(){
 
     int width = 72;
     int height = 60;
+    int total_px = width * height;
 
-    unsigned char* Pout_h = new unsigned char[60][72];
-    unsigned char* Pin_h = new unsigned char[60][3*72];
+    unsigned char* Pout_h = new unsigned char[total_px];
+    unsigned char* Pin_h = new unsigned char[3*total_px];
 
     for (int i = 0; i < height; i++){
         for (int j = 0; i < width; j++){
-            Pout_h[i][j] = (unsigned char) (i+j) % 256;
+            Pout_h[i*width + j] = (unsigned char) (i+j) % 256;
         }
     }
 
@@ -81,7 +82,7 @@ int main(){
     std::cout << "Color Image:";
     for (int i = 0; i < height; i++){
         for (int j = 0; j < 3*width; j++){
-            std::cout << (int) Pin_h[i][j] << " ";
+            std::cout << (int) Pin_h[i*3*width + j] << " ";
         }
         std::cout << std::endl;
     }
@@ -89,7 +90,7 @@ int main(){
     std::cout << "Grayscale Image:";
     for (int i = 0; i < height; i++){
         for (int j = 0; j < width; j++){
-            std::cout << (int) Pout_h[i][j] << " ";
+            std::cout << (int) Pout_h[i*width + j] << " ";
         }
         std::cout << std::endl;
     }
