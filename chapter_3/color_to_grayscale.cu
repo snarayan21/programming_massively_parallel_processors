@@ -71,29 +71,27 @@ int main(){
     unsigned char* Pout_h = new unsigned char[total_px];
     unsigned char* Pin_h = new unsigned char[3*total_px];
 
-    for (int i = 0; i < height; i++){
-        for (int j = 0; i < width; j++){
-            Pout_h[i*width + j] = (unsigned char) (i+j) % 256;
-        }
-    }
+    // for (int i = 0; i < height; i++){
+    //     for (int j = 0; i < width; j++){
+    //         Pout_h[i*width + j] = (unsigned char) (i+j) % 256;
+    //     }
+    // }
 
-    // colorToGrayscale(Pout_h, Pin_h, width, height);
+    colorToGrayscale(Pout_h, Pin_h, width, height);
 
-    std::cout << "Color Image:";
-    for (int i = 0; i < height; i++){
-        for (int j = 0; j < 3*width; j++){
-            std::cout << (int) Pin_h[i*3*width + j] << " ";
-        }
-        std::cout << std::endl;
-    }
+    // std::cout << "Color Image:";
+    // for (int i = 0; i < height; i++){
+    //     for (int j = 0; j < 3*width; j++){
+    //         std::cout << (int) Pin_h[i*3*width + j] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
 
-    std::cout << "Grayscale Image:";
-    for (int i = 0; i < height; i++){
-        for (int j = 0; j < width; j++){
-            std::cout << (int) Pout_h[i*width + j] << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    return 0;
+    // std::cout << "Grayscale Image:";
+    // for (int i = 0; i < height; i++){
+    //     for (int j = 0; j < width; j++){
+    //         std::cout << (int) Pout_h[i*width + j] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
 }
