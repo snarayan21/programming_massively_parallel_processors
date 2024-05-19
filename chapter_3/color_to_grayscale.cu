@@ -1,8 +1,8 @@
 #include <iostream>
 
 __global__
-// The image is encoded as unsigned chars -- unsigned ints from 0 to 255.
-void colorToGrayscaleKernel(unsigned char* Pout, unsigned char* Pin, int width, int height){
+// The image is encoded as uint8_ts -- unsigned ints from 0 to 255.
+void colorToGrayscaleKernel(uint8_t* Pout, uint8_t* Pin, int width, int height){
     // successive rows are in the y direction, successive columns are in the x direction.
     // same as going over the matrix horizontally = increase x
     // same as going over the matrix vertically = increase y
@@ -13,23 +13,23 @@ void colorToGrayscaleKernel(unsigned char* Pout, unsigned char* Pin, int width, 
     if (col_idx < width && row_idx < height){
         int grayscaleOffset = row_idx * width + col_idx;
 
-        // In the color image, the pixels are stored as 3-tuples of unsigned chars (I think...)
+        // In the color image, the pixels are stored as 3-tuples of uint8_ts (I think...)
         // So the pixel offset is 3 times the grayscale offset, and the order is R, G, B
         int colorOffset = grayscaleOffset * 3;
-        unsigned char r = Pin[colorOffset];
-        unsigned char g = Pin[colorOffset + 1];
-        unsigned char b = Pin[colorOffset + 2];
+        uint8_t r = Pin[colorOffset];
+        uint8_t g = Pin[colorOffset + 1];
+        uint8_t b = Pin[colorOffset + 2];
 
         // The formula for converting color to grayscale is 0.21*r + 0.72*g + 0.07*b
         Pout[grayscaleOffset] = 0.21f * r + 0.72f * g + 0.07f * b;
     }
 }
 
-void colorToGrayscale(unsigned char* Pout_h, unsigned char* Pin_h, int width, int height){
+void colorToGrayscale(uint8_t* Pout_h, uint8_t* Pin_h, int width, int height){
 
     // Initialize and allocate pointers to device memory.
-    unsigned char *Pout_d, *Pin_d;
-    int grayscale_size = width * height * sizeof(unsigned char);
+    uint8_t *Pout_d, *Pin_d;
+    int grayscale_size = width * height * sizeof(uint8_t);
 
     // Allocate memory for the input (color) and output (grayscale) images
     // There are 3 channels, R, G, and B.
@@ -68,13 +68,13 @@ int main(){
     int height = 60;
     int total_px = width * height;
 
-    unsigned char* Pout_h = new unsigned char[total_px];
-    unsigned char* Pin_h = new unsigned char[3*total_px];
+    uint8_t* Pout_h = new uint8_t[total_px];
+    uint8_t* Pin_h = new uint8_t[3*total_px];
 
     for (int i = 0; i < height; i++){
         for (int j = 0; j < width; j++){
             std::cout << "i: " << i << " j: " << j << std::endl;
-            Pout_h[i*width + j] = (unsigned char) (i+j) % 256;
+            Pout_h[i*width + j] = (uint8_t) (i+j) % 256;
         }
     }
 
