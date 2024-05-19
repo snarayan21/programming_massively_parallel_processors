@@ -74,6 +74,7 @@ int main(){
     for (int i = 0; i < height; i++){
         for (int j = 0; j < width; j++){
             std::cout << "i: " << i << " j: " << j << std::endl;
+            std::cout << "new value:" << (uint8_t) (i+j) % 256 << std::endl;
             Pout_h[i*width + j] = (uint8_t) (i+j) % 256;
         }
     }
