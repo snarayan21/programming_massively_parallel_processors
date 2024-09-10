@@ -33,13 +33,13 @@ void matVec(float* Vout_h, float* Vin_h, float* Mat_h, int len){
     float *Vout_d, *Vin_d, *Mat_d;
 
     // Allocate memory for Vin_d, Vout_d, Mat_d on device
-    cudaMalloc((void**) &Vin_d, len);
-    cudaMalloc((void**) &Vout_d, len);
-    cudaMalloc((void**) &Mat_d, len*len);
+    cudaMalloc((void**) &Vin_d, len*sizeof(float));
+    cudaMalloc((void**) &Vout_d, len*sizeof(float));
+    cudaMalloc((void**) &Mat_d, len*len*sizeof(float));
 
     // Copies from host memory to device memory
-    cudaMemcpy(Vin_d, Vin_h, len, cudaMemcpyHostToDevice);
-    cudaMemcpy(Mat_d, Mat_h, len*len, cudaMemcpyHostToDevice);
+    cudaMemcpy(Vin_d, Vin_h, len*sizeof(float), cudaMemcpyHostToDevice);
+    cudaMemcpy(Mat_d, Mat_h, len*len*sizeof(float), cudaMemcpyHostToDevice);
 
     // Launch the kernel
     // Use a 1D grid of blocks, each with 256 threads.
