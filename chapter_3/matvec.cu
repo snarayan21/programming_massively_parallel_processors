@@ -16,11 +16,6 @@ void matVecKernel(float* Vout, float* Vin, float* Mat, int len){
         float accum = 0.0f;
         for (int i = 0; i < len; i++){
             accum += Mat[idx*len + i] * Vin[i];
-            if (idx == 1) {
-                printf("Mat[%d][%d]: %f\n", idx, i, Mat[idx*len + i]);
-                printf("Vin[%d]: %f\n", i, Vin[i]);
-                printf("accum: %f\n", accum);
-            }
         }
         Vout[idx] = accum;
     }
@@ -65,15 +60,6 @@ int main(){
     
     // Mat_h is all 1s
     std::fill(Mat_h, Mat_h + len*len, 1.0f);
-
-    std::cout << "Matrix: " << std::endl;
-    // print out elements of Mat_h:
-    for (int i = 0; i < len; i++){
-        for (int j = 0; j < len; j++){
-            std::cout << Mat_h[i*len + j] << " ";
-        }
-        std::cout << std::endl;
-    }
 
     // Vin_h will be increasing values
     for (int i = 0; i < len; i++){
