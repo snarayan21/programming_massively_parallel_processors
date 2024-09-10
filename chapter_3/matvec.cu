@@ -35,7 +35,7 @@ void matVec(float* Vout_h, float* Vin_h, float* Mat_h, int len){
     // Allocate memory for Vin_d, Vout_d, Mat_d on device
     cudaMalloc((void**) &Vin_d, len);
     cudaMalloc((void**) &Vout_d, len);
-    cudaMalloc((void**) &Mat_d, len);
+    cudaMalloc((void**) &Mat_d, len*len);
 
     // Copies from host memory to device memory
     cudaMemcpy(Vin_d, Vin_h, len, cudaMemcpyHostToDevice);
