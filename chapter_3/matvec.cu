@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 // kernel function
 __global__
