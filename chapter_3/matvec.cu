@@ -53,9 +53,9 @@ int main(){
 
     int len = 125;
 
-    unsigned char* Vout_h = new float[len];
-    unsigned char* Vin_h = new float[len];
-    unsigned char* Mat_h = new float[len*len];
+    float* Vout_h = new float[len];
+    float* Vin_h = new float[len];
+    float* Mat_h = new float[len*len];
     
     // Mat_h is all 1s
     std:fill(Mat_h, Mat_h + len*len, 1.0f);
