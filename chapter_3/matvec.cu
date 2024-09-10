@@ -16,7 +16,7 @@ void matVecKernel(float* Vout, float* Vin, float* Mat, int len){
         float accum = 0.0f;
         for (int i = 0; i < len; i++){
             accum += Mat[idx*len + i] * Vin[i];
-            if idx == 1 {
+            if (idx == 1) {
                 printf("Mat[%d][%d]: %f\n", idx, i, Mat[idx*len + i]);
                 printf("Vin[%d]: %f\n", i, Vin[i]);
                 printf("accum: %f\n", accum);
