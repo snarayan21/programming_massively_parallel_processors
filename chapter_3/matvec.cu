@@ -39,8 +39,7 @@ void matVec(float* Vout_h, float* Vin_h, float* Mat_h, int len){
 
     // Copies from host memory to device memory
     cudaMemcpy(Vin_d, Vin_h, len, cudaMemcpyHostToDevice);
-    cudaMemcpy(Vout_d, Vout_h, len, cudaMemcpyHostToDevice);
-    cudaMemcpy(Mat_d, Mat_h, len, cudaMemcpyHostToDevice);
+    cudaMemcpy(Mat_d, Mat_h, len*len, cudaMemcpyHostToDevice);
 
     // Launch the kernel
     // Use a 1D grid of blocks, each with 256 threads.
