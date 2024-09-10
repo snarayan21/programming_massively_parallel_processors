@@ -75,19 +75,20 @@ int main(){
         std::cout << std::endl;
     }
 
-    // Vin_d will be increasing values
+    // Vin_h will be increasing values
     for (int i = 0; i < len; i++){
         Vin_h[i] = (float) i;
     }
-
-    // call stub which takes care of everything device-side
-    matVec(Vout_h, Vin_h, Mat_h, len);
 
     std::cout << "Input Vector: ";
     for (int i = 0; i < len; i++) {
         std::cout << (float) Vin_h[i] << " ";        
     }
     std::cout << std::endl;
+
+    // call stub which takes care of everything device-side
+    matVec(Vout_h, Vin_h, Mat_h, len);
+
 
     std::cout << "Output Vector: ";
     for (int i = 0; i < len; i++) {
