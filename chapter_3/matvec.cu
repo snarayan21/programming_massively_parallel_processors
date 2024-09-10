@@ -66,6 +66,15 @@ int main(){
     // Mat_h is all 1s
     std::fill(Mat_h, Mat_h + len*len, 1.0f);
 
+    std::cout << "Matrix: " << std::endl;
+    // print out elements of Mat_h:
+    for (int i = 0; i < len; i++){
+        for (int j = 0; j < len; j++){
+            std::cout << Mat_h[i*len + j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
     // Vin_d will be increasing values
     for (int i = 0; i < len; i++){
         Vin_h[i] = (float) i;
