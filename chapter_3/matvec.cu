@@ -19,7 +19,7 @@ void matVecKernel(float* Vout, float* Vin, float* Mat, int len){
         }
         Vout[idx] = accum;
         printf("idx is: %d\n", idx);
-        printf("accum is: %d\n", accum);
+        printf("accum is: %f\n", accum);
     }
 }
 
