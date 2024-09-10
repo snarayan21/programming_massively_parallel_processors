@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cstdio>
 
 // kernel function
 __global__
@@ -17,6 +18,8 @@ void matVecKernel(float* Vout, float* Vin, float* Mat, int len){
             accum += Mat[idx*len + i] * Vin[i];
         }
         Vout[idx] = accum;
+        printf("idx is: %d\n", idx);
+        printf("accum is: %d\n", accum);
     }
 }
 
@@ -69,15 +72,15 @@ int main(){
     // call stub which takes care of everything device-side
     matVec(Vout_h, Vin_h, Mat_h, len);
 
-    std::cout << "Input Vector:";
+    std::cout << "Input Vector: ";
     for (int i = 0; i < len; i++) {
-        std::cout << (int) Vin_h[i] << " ";        
+        std::cout << (float) Vin_h[i] << " ";        
     }
     std::cout << std::endl;
 
-    std::cout << "Output Vector:";
+    std::cout << "Output Vector: ";
     for (int i = 0; i < len; i++) {
-        std::cout << (int) Vout_h[i] << " ";        
+        std::cout << (float) Vout_h[i] << " ";        
     }
     std::cout << std::endl;
 }
