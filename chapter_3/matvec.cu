@@ -59,7 +59,7 @@ int main(){
     float* Mat_h = new float[len*len];
     
     // Mat_h is all 1s
-    std:fill(Mat_h, Mat_h + len*len, 1.0f);
+    std::fill(Mat_h, Mat_h + len*len, 1.0f);
 
     // Vin_d will be increasing values
     for (int i = 0; i < len; i++){
