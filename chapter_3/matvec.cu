@@ -46,7 +46,7 @@ void matVec(float* Vout_h, float* Vin_h, float* Mat_h, int len){
     matVecKernel<<<ceil(len/256.0), 256>>>(Vout_d, Vin_d, Mat_d, len);
 
     // Copy result from device memory to host memory
-    cudaMemcpy(Vout_h, Vout_d, len, cudaMemcpyDeviceToHost);
+    cudaMemcpy(Vout_h, Vout_d, len*sizeof(float), cudaMemcpyDeviceToHost);
 
     // Don't forget to free device memory!!
     cudaFree(Vin_d);
